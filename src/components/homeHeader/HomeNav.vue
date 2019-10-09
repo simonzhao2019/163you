@@ -24,6 +24,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script type="text/ecmascript-6">
@@ -57,7 +58,15 @@ import BScroll from 'better-scroll'
 
 <style lang='stylus' rel='stylesheet/stylus' scoped>
 .home
+  height 146px
+  margin-bottom 1px
  .headerSection
+   position fixed
+   left 0
+   top 0
+   width 100%
+   z-index 199
+   background-color #fff
    .logo
       display flex
       align-items center
@@ -95,6 +104,7 @@ import BScroll from 'better-scroll'
    .nav-wrapper
       height  60px
       display flex
+      overflow hidden
       .nav-content
         height 60px
         display flex

@@ -1,5 +1,5 @@
 <template>
-<div id="app">
+<div id="app" style="margin-bottom:98px">
   <router-view></router-view>
   <FootTab></FootTab>
 </div>
@@ -19,5 +19,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>
