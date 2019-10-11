@@ -5,7 +5,7 @@
         <a href="javascript:;"><img src="../../common/images/logo.png" alt="logo"></a>
         <div class="search">
           <i class="iconfont icon-sousuo"></i>
-          <input type="text" placeholder="搜索商品，共23069款好物品">
+          <input type="text" placeholder="搜索商品，共23069款好物品" @click="$router.push('/search')">
         </div>
         <button>登录</button>
       </div>
@@ -28,7 +28,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import BScroll from 'better-scroll'
+import BScroll from '@better-scroll/core'
 
   export default {
     data(){

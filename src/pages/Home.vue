@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div id="wrap">
     <HomeNav></HomeNav>
     <Swiper></Swiper>
     <div class="servicePolicy">
@@ -23,66 +23,12 @@
       </span>
     </div>
     <div class="middle_swiper">
-      <ul class="middle_swiper_list">
-        <li class="middle_swiper_item">
+      <ul class="middle_swiper_list" v-if="wrapList.kingKongModule">
+        <li class="middle_swiper_item" v-for="(item,index) in wrapList.kingKongModule.kingKongList" :key="index" >
           <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
+            <img :src="item.picUrl" >
+            <span>{{item.text}}</span>
           </a></li>
-        <li>
-          <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
-          </a>
-          </li>
-        <li>
-          <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
-          </a>
-          </li>
-        <li>
-          <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <img src="http://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" >
-            <span>新品首发</span>
-          </a>
-        </li>
       </ul>
     </div>
     <div class="freshManGift">
@@ -216,94 +162,24 @@
     </div>
     <NewProduct>
       <span slot="title">限时购</span>
-      <ul slot="list" class="newproduct">
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
+      <ul slot="list" class="newproduct" v-if="timeShoping.flashSaleModule">
+        <li  v-for="(item,index) in timeShoping.flashSaleModule.itemList" :key="index">
+       <div class="infopicture"> <img :src="item.picUrl" alt="picUrl"></div>
         <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
+          <span class="flash_price">¥{{item.activityPrice}}</span>
+          <span class="old_price">¥{{item.originPrice}}</span>
         </div>
       </li>
       </ul>
     </NewProduct>
-    <NewProduct>
+  <NewProduct>
       <span slot="title">限时购</span>
-      <ul slot="list" class="newproduct">
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
+      <ul slot="list" class="newproduct" v-if="timeShoping.flashSaleModule">
+        <li  v-for="(item,index) in timeShoping.flashSaleModule.itemList" :key="index">
+       <div class="infopicture"> <img :src="item.picUrl" alt="picUrl"></div>
         <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
-        </div>
-      </li>
-        <li >
-       <div class="infopicture"> <img src="http://yanxuan.nosdn.127.net/4462d78e094d81c02278fdc02e4ddbfa.jpg" alt="picUrl"></div>
-        <div class="bottom_info">
-          <span class="flash_price">¥320</span>
-          <span class="old_price">¥450</span>
+          <span class="flash_price">¥{{item.activityPrice}}</span>
+          <span class="old_price">¥{{item.originPrice}}</span>
         </div>
       </li>
       </ul>
@@ -312,6 +188,7 @@
       <img src="https://yanxuan.nosdn.127.net/1752f2c923663900acbedd688a90213b.jpg" alt="">
     </div>
   <BottomSlide></BottomSlide>
+  <CopyRight></CopyRight>
   </div>
 </template>
 
@@ -320,22 +197,32 @@ import BottomSlide from './home/bottomslide';
 import HomeNav from "../components/homeHeader/HomeNav.vue";
 import Swiper from '../components/homeHeader/swiper';
 import NewProduct from './home/newProduct';
+import CopyRight from './home/CopyRight';
+import {mapState}from 'vuex';
 export default {
   data(){
     return {
       category:[]
     }
   },
+  computed: {
+   ...mapState({
+     wrapList:state=>state.home.homeData,
+     timeShoping:state=>state.home.homeData,
+   }) 
+  },
   mounted() {
     for(let i=0;i<8;i++){
       this.category.push("kong")
     }
+    this.$store.dispatch('getHomeData')
   },
   components: {
     HomeNav,
     Swiper,
     NewProduct,
-    BottomSlide
+    BottomSlide,
+    CopyRight
   }
 };
 </script>
@@ -379,6 +266,7 @@ export default {
         margin-top 20px 
         font-size  24px
         color #333
+        text-align center
 .freshManGift
   width 100%
   box-sizing border-box
@@ -644,7 +532,8 @@ export default {
   img
     width 100%
     height 370px
-      
+ #wrap
+  margin-bottom 98px     
       
 
 

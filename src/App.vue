@@ -1,7 +1,9 @@
 <template>
-<div id="app" style="margin-bottom:98px">
+<div id="app" >
+  <keep-alive>
   <router-view></router-view>
-  <FootTab></FootTab>
+  </keep-alive>
+  <FootTab v-show="$route.meta.isShow"></FootTab>
 </div>
 
 </template>
