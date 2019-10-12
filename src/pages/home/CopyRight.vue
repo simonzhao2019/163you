@@ -16,7 +16,6 @@
 
 <script>
   export default {
-    name: 'KJFMobileRight',
     data () {
       return {
       }

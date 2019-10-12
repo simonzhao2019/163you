@@ -1,9 +1,13 @@
-const Home = () => import("../pages/Home.vue");
-const Category = () => import("../pages/Category.vue");
+//const Home = () => import("../pages/Home.vue");
+import Home from "../pages/Home.vue";
+//const Category = () => import("../pages/Category.vue");
+import Category from "../pages/Category.vue";
 import Recognize from '../pages/Recognize.vue';
 import Cart from '../pages/Cart.vue';
 import Personal from '../pages/Personal.vue';
 const Search=()=>import('../pages/search/search.vue')
+import PhoneLogin from '../components/PhoneLogin.vue';
+import EmailLogin from '../components/EmailLogin';
 export default [
   {
     path: "/home",
@@ -36,9 +40,16 @@ export default [
   {
     path: "/personal",
     component: Personal,
-    meta: {
-      isShow: true
-    }
+    children: [
+      {
+        path: "/personal/phonelogin",
+        component: PhoneLogin
+      },
+      {
+        path: "emaillogin",
+        component: EmailLogin
+      }
+    ]
   },
   {
     path: "/search",

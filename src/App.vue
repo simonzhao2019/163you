@@ -1,8 +1,6 @@
 <template>
-<div id="app" >
-  <keep-alive>
+<div id="app" style="height:100%">
   <router-view></router-view>
-  </keep-alive>
   <FootTab v-show="$route.meta.isShow"></FootTab>
 </div>
 
@@ -21,6 +19,9 @@ export default {
 </script>
 
 <style>
-
+/* #app{
+  height:100%;
+  width:100%;
+} */
 
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="headerTitle">
-    <span class="header_home">
+    <span class="header_home" @click="$router.replace('/home')">
       <i class="iconfont icon-home1"></i>
     </span>
     <slot></slot>
@@ -30,6 +30,7 @@
   display flex
   justify-content space-between
   align-items center
+  background-color #fff
   .header_home
     i
       font-size 40px

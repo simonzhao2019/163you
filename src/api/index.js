@@ -13,9 +13,13 @@ export const reqSearchData=()=>ajax({
 })
 export const reqSearchWord = keywords =>
          ajax({
-           url: "api/xhr/search/searchAutoComplete.json",
+           url: "/api/xhr/search/searchAutoComplete.json",
            method: "GET",
            params: {
              keywordPrefix: keywords
            }
          });
+export const reqRecognizeNav = () => ajax("/api/topic/v1/find/getTabs.json");
+//识物content
+export const reqRecommendData = () =>
+  ajax("/api/topic/v1/find/recManual.json");         

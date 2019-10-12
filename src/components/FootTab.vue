@@ -12,7 +12,7 @@
       </span>
       <span>分类</span>
     </span>
-    <span class="guide_item" @click="jumpTo('/recognize')" :class="{active:'/recognize'===$route.path}">
+    <span class="guide_item" @click="jumpTo('/recognize')" :class="{active:$route.path.includes('/recognize')}">
       <span class="item_icon">
         <i class="iconfont icon-tupian1"></i>
       </span>
