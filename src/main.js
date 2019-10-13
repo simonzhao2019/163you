@@ -4,7 +4,10 @@ import VueAwesomeSwiper from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
 import  '../src/mockData/mockServer'
 import CommonHeader from "../src/components/CommonHeader.vue";
+import './validate';
+import * as Api from './api';
 
+Vue.prototype.$Api =Api;
 Vue.use(VueAwesomeSwiper );
 //自己模块的引入
 import App from './App.vue'

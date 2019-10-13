@@ -6,23 +6,43 @@
   </div>
   <form class="login_input">
     <div class="login_input_section1">
-      <input type="text" placeholder="请输入手机号码">
+      <ValidationProvider name="mobile" rules="mobile">
+      <div slot-scope="{ errors }">
+    <input type="text" placeholder="请输入手机号码" v-model="phoneText"
+      @change="validatePhone"
+      >
+    <p id="errorValidate">{{ errors[0] }}</p>
+  </div>
+</ValidationProvider>
       <input type="text" placeholder="请输入验证码">
     </div>
- 
     <div class="login_input_section2">
       <span>忘记密码</span>
       <span>短信快捷登录</span>
     </div>
     <input type="submit" value="登录" @click.prevent="" class="submmitButton">
   </form>
-  <div>其它登录方式</div>
+
 </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
+    data(){
+      return {
+        phoneText:""
+      }
+    },
+    methods: {
+      validatePhone(){
+      if(  (/^1[3|4|5|7|8][0-9]{9}$/).test(this.phoneText)){
+        console.log("手机号码验证成功");
+      }else{
+        console.log("手机号码验证失败");
+      }
+      }
+    },
   }
 </script>
 
@@ -60,6 +80,7 @@
          margin-top 50px
          padding 20px 20px
          font-size 30px
+         width 100%
       .login_input_section2
         width 100%
         height 44px
@@ -68,8 +89,16 @@
         margin 30px 0
         font-size 30px
         justify-content space-between 
-
-
+      .submmitButton
+        width 100%
+        height 90px
+        text-align center
+        line-height 90px
+        color #fff
+        background-color #DD1A21
+#errorValidate
+  font-size 20px
+  color red
         
             
 

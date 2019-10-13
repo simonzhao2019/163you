@@ -38,7 +38,6 @@ import BScroll from '@better-scroll/core';
     async mounted() {
       console.log(1111111);
       const result=await reqRecognizeNav()
-      console.log(result);
       if(result.code==200){
         this.navArr=result.data
       }
@@ -52,6 +51,7 @@ import BScroll from '@better-scroll/core';
           this.navScroll.refresh()
         }
       }) 
+     
     },
     components:{
       RecognizeContent
@@ -77,10 +77,11 @@ import BScroll from '@better-scroll/core';
       height  60px
       position fixed
       left 0
-      top 100px
+      top 88px
       display flex
       overflow hidden
       z-index 999
+      background-color #fff
       .nav-content
         height 60px
         display flex

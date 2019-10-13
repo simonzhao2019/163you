@@ -20,6 +20,7 @@ export const reqSearchWord = keywords =>
            }
          });
 export const reqRecognizeNav = () => ajax("/api/topic/v1/find/getTabs.json");
-//识物content
+//识物recommend
 export const reqRecommendData = () =>
-  ajax("/api/topic/v1/find/recManual.json");         
+  ajax("/api/topic/v1/find/recManual.json"); 
+
